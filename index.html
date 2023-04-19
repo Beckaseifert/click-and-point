@@ -1,0 +1,56 @@
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #0f003e;
+    color: #dace76;
+  }
+  
+  h1 {
+    text-transform: uppercase;
+    font-size: 75px;
+  }
+  
+  
+</style>
+
+
+<main>
+  <h1>{{chapter}}</h1>
+  <h3>{{subtitle}}</h3>
+</main>
+
+
+
+<script>
+  const data = [{
+      chapter: 'The Next Day',
+      subtitle: 'what will you try?'
+    },
+    {
+      chapter: 'The Following Day',
+      subtitle: 'will you try again'
+    },
+    {
+      chapter: '',
+      subtitle: 'it did not work...'
+    },
+    {
+      chapter: 'sucsess!',
+      subtitle: 'the ritual was sucsessful'
+    }
+  ]
+
+
+  function load(level) {
+    const obj = data[level]
+    document.querySelector('h1').textContent = obj.chapter
+    document.querySelector('h3').textContent = obj.subtitle
+  }
+
+  window.addEventListener('load', () => load(3))
+</script>
