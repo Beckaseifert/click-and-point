@@ -15,15 +15,14 @@
     text-transform: uppercase;
     font-size: 75px;
   }
-  
-  
+	
   
 </style>
 
 
 <main>
-  <h1>{{chapter}}</h1>
-  <h3>{{subtitle}}</h3>
+  <h1 id="fl"></h1>
+  <h3 id="sl"></h3>
 </main>
 
 
@@ -34,7 +33,7 @@
     },
     {
       chapter: 'The Following Day',
-      subtitle: 'will you try again'
+      subtitle: 'will you try again?'
     },
     {
       chapter: '',
@@ -50,12 +49,26 @@
     }
   ]
 
+  let i = 0;
+  function addLetter(str, id) {
+    document.getElementById(id).textContent += str.charAt(i);
+  	i++;
+    if (i < str.length) {
+      setTimeout(addLetter, 100, str,id);
+    }
+  }
 
   function load(level) {
     const obj = data[level]
-    document.querySelector('h1').textContent = obj.chapter
-    document.querySelector('h3').textContent = obj.subtitle
+    //document.querySelector('h1').textContent = obj.chapter
+    addLetter(obj.chapter, "fl")
+    //document.querySelector('h3').textContent = obj.subtitle
+    addLetter(obj.subtitle, "sl")
   }
 
-  window.addEventListener('load', () => load(3))
+  window.addEventListener('load', () => load(1))
+  
+  
+  
+  
 </script>
