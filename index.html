@@ -1,11 +1,12 @@
 <style>
+   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
   body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 95vh;
     text-align: center;
-    font-family: courier-new;
+    font-family: 'Press Start 2P', cursive;
     background-color: #1e003e;
     color: #dace76;
     border: 3px solid #dace76;
@@ -13,7 +14,7 @@
   
   h1 {
     text-transform: uppercase;
-    font-size: 75px;
+    font-size: 50px;
   }
 	
   
@@ -49,21 +50,21 @@
     }
   ]
 
-  let i = 0;
-  function addLetter(str, id) {
+  
+  function addLetter(str, id, i) {
     document.getElementById(id).textContent += str.charAt(i);
   	i++;
     if (i < str.length) {
-      setTimeout(addLetter, 100, str,id);
+      setTimeout(addLetter, 125, str, id, i);
     }
   }
 
   function load(level) {
     const obj = data[level]
     //document.querySelector('h1').textContent = obj.chapter
-    addLetter(obj.chapter, "fl")
+    addLetter(obj.chapter, "fl", 0)
     //document.querySelector('h3').textContent = obj.subtitle
-    addLetter(obj.subtitle, "sl")
+    addLetter(obj.subtitle, "sl", 0)
   }
 
   window.addEventListener('load', () => load(1))
